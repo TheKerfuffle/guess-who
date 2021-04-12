@@ -2,6 +2,8 @@ console.log('Here are all the available people:', people);
 
 $(readyNow);
 
+let currentPerson;
+
 function readyNow() {
     for (let who of people) {
         $('#faces').append(`
@@ -12,13 +14,15 @@ function readyNow() {
     }
 
     newGuess();
-
     $('#faces').on('click', ".person", guessWho);
 }
 
+
+
 function guessWho() {
-    console.log($(this).closest('div').data());
-    ;
+    if ($(this).closest('div').data().personName === currentPerson) {
+        alert;
+    }
 }
 
 
@@ -28,25 +32,25 @@ function newGuess() {
     switch (newFace) {
         case 0:
             $('#clickOn').text(people[0].name);
-            break;
+            currentPerson = people[0].name;
         case 1:
             $('#clickOn').text(people[1].name);
-            break;
+            currentPerson = people[1].name;
         case 2:
             $('#clickOn').text(people[2].name);
-            break;
+            currentPerson = people[2].name;
         case 3:
             $('#clickOn').text(people[3].name);
-            break;
+            currentPerson = people[3].name;
         case 4:
             $('#clickOn').text(people[4].name);
-            break;
+            currentPerson = people[4].name;
         case 5:
             $('#clickOn').text(people[5].name);
-            break;
+            currentPerson = people[5].name;
         case 6:
             $('#clickOn').text(people[6].name);
-            break;
-
+            currentPerson = people[6].name;
     }
+
 }
